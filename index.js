@@ -1,6 +1,6 @@
 const books = [
   {
-    name: "To Kill a Mockingbird",
+    name: "To Kill movie1 Mockingbird",
     authorFirst: "Harper",
     authorLast: "Lee",
     publishDate: 1960,
@@ -72,7 +72,7 @@ const books = [
 ];
 
 const titles = [
-  "To Kill a Mockingbird",
+  "To Kill movie1 Mockingbird",
   "The Great Gatsby",
   "The Hobbit",
   "Harry Potter and the Deathly Hallows",
@@ -86,17 +86,39 @@ const titles = [
 
 //Array of authors and the book they wrote
 //"--- wrote --- in ---"
+books.forEach((book) => console.log(book.authorFirst, book.authorLast, "wrote", book.name, "in", book.publishDate))
 
 //Sort books from oldest to most recent
+const sortedBooks = books.sort((movie1, movie2) => movie1.publishDate - movie2.publishDate);
+sortedBooks.forEach((book)=>console.log(book.name,book.publishDate))
 
 //sort books alphabetically
-
+const alphabeticallySort = titles.sort();
+alphabeticallySort.forEach((book) => console.log(book))
 //Find who wrote War and Peace
-
+function warFinder(book){
+  return book.name = "War and Peace";
+}
+const warWriter = books.find(warFinder)
+console.log(warWriter.authorFirst,warWriter.authorLast);
 //how many books were written before 1900?
-
+const pre1900 = books.filter((book) => book.publishDate <= 1900)
+const pre1900Count = pre1900.length
+console.log(pre1900Count)
 //was there at least one book published within the last 100 years?
-
+const post1900 = books.filter((book) => book.publishDate >= 1900)
+const post1900Count = post1900.length;
+if(post1900Count >= 1){
+  console.log("yes")
+}
 //was every book published within the last 100 years?
-
-//print a list of books that "includes" the genre historical
+const everyBook = books.filter((book) => book.publishDate >= 1923)
+const everyBookCount = everyBook.length
+if(everyBookCount == 10){
+  console.log("yes")
+}else{
+  console.log("no")
+}
+//print movie1 list of books that "includes" the genre historical
+const historicalBooks = books.filter((book)=> book.genre.includes("historical"))
+historicalBooks.forEach((book)=>console.log(book.name))
